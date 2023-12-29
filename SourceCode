@@ -69,3 +69,21 @@ if f_trailing_stop_yuzdeli_kumulatif_table_show
     table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 1, 9,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_8,2)),  text_color = color.black)
     table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 1, 10, str.tostring(math.round(f_trailing_stop_yuzdeli_stp_9,2)),  text_color = color.black)
     table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 1, 11, str.tostring(math.round(f_trailing_stop_yuzdeli_stp_10,2)), text_color = color.black)
+
+//
+
+table f_trailing_stop_yuzdeli_non_kumulatif_table = table.new(position.middle_right, columns = 3, rows = 13)
+
+f_trailing_stop_yuzdeli_non_kumulatif_giris_f       = input.int(50, title = "Giriş Fiyatı")
+f_trailing_stop_yuzdeli_non_kumulatif_stop_tasima_y = input.float(0.1, title = "Zarar Stopunuz Yüzde Kaç ile Hareket Etsin?", step = 0.05)
+
+f_trailing_stop_yuzdeli_non_kumulatif_stp_1  = f_trailing_stop_yuzdeli_non_kumulatif_giris_f + (f_trailing_stop_yuzdeli_non_kumulatif_giris_f * f_trailing_stop_yuzdeli_non_kumulatif_stop_tasima_y)
+f_trailing_stop_yuzdeli_non_kumulatif_stp_2  = f_trailing_stop_yuzdeli_stp_1   + (f_trailing_stop_yuzdeli_stp_1   * f_trailing_stop_yuzdeli_stop_tasima_y)
+f_trailing_stop_yuzdeli_non_kumulatif_stp_3  = f_trailing_stop_yuzdeli_stp_2   + (f_trailing_stop_yuzdeli_stp_2   * f_trailing_stop_yuzdeli_stop_tasima_y)
+f_trailing_stop_yuzdeli_non_kumulatif_stp_4  = f_trailing_stop_yuzdeli_stp_3   + (f_trailing_stop_yuzdeli_stp_3   * f_trailing_stop_yuzdeli_stop_tasima_y)
+f_trailing_stop_yuzdeli_non_kumulatif_stp_5  = f_trailing_stop_yuzdeli_stp_4   + (f_trailing_stop_yuzdeli_stp_4   * f_trailing_stop_yuzdeli_stop_tasima_y)
+f_trailing_stop_yuzdeli_non_kumulatif_stp_6  = f_trailing_stop_yuzdeli_stp_5   + (f_trailing_stop_yuzdeli_stp_5   * f_trailing_stop_yuzdeli_stop_tasima_y)
+f_trailing_stop_yuzdeli_non_kumulatif_stp_7  = f_trailing_stop_yuzdeli_stp_6   + (f_trailing_stop_yuzdeli_stp_6   * f_trailing_stop_yuzdeli_stop_tasima_y)
+f_trailing_stop_yuzdeli_non_kumulatif_stp_8  = f_trailing_stop_yuzdeli_stp_7   + (f_trailing_stop_yuzdeli_stp_7   * f_trailing_stop_yuzdeli_stop_tasima_y)
+f_trailing_stop_yuzdeli_non_kumulatif_stp_9  = f_trailing_stop_yuzdeli_stp_8   + (f_trailing_stop_yuzdeli_stp_8   * f_trailing_stop_yuzdeli_stop_tasima_y)
+f_trailing_stop_yuzdeli_non_kumulatif_stp_10 = f_trailing_stop_yuzdeli_stp_9   + (f_trailing_stop_yuzdeli_stp_9   * f_trailing_stop_yuzdeli_stop_tasima_y)
