@@ -2,7 +2,7 @@
 // © zeubetella
 
 //@version=5
-indicator("İzsüren Stop Mekanizmaları")
+indicator("İzsüren Stop Mekanizmaları", overlay = true)
 
 f_yuksekdusuk_yuksek = ta.highest(5)
 f_yuksekdusuk_dusuk = ta.lowest(5)
