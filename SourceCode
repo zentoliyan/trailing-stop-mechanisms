@@ -5,6 +5,9 @@
 indicator("İzsüren Stop Mekanizmaları", overlay = true)
 
 f_yuksekdusuk_input_show = input.bool(true)
+f_atr_input_show = input.bool(false)
+
+//
 
 f_yuksekdusuk_input_len = input.int(5)
 
@@ -13,3 +16,6 @@ f_yuksekdusuk_dusuk = ta.lowest(f_yuksekdusuk_input_len)
 
 plot(f_yuksekdusuk_input_show ? f_yuksekdusuk_yuksek : na, color = color.green)
 plot(f_yuksekdusuk_input_show ? f_yuksekdusuk_dusuk : na, color = color.red)
+
+//
+
