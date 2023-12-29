@@ -30,4 +30,4 @@ plot(f_atr_input_show ? f_atr_islenmis : na)
 table f_trailing_stop_yuzdeli = table.new(position.middle_right, columns = 3, rows = 3)
 
 table.cell(f_trailing_stop_yuzdeli, 0, 0, "Stop Noktası", text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli, 0, 1, "Stop Noktası", text_color = color.black)
+table.cell(f_trailing_stop_yuzdeli, 1, 0, "Stop Noktası", text_color = color.black)
