@@ -4,8 +4,10 @@
 //@version=5
 indicator("İzsüren Stop Mekanizmaları", overlay = true)
 
-f_yuksekdusuk_yuksek = ta.highest(5)
-f_yuksekdusuk_dusuk = ta.lowest(5)
+f_yuksekdusuk_input_len = input.int(5)
+
+f_yuksekdusuk_yuksek = ta.highest(f_yuksekdusuk_input_len)
+f_yuksekdusuk_dusuk = ta.lowest(f_yuksekdusuk_input_len)
 
 plot(f_yuksekdusuk_yuksek, color = color.green)
 plot(f_yuksekdusuk_dusuk, color = color.red)
