@@ -1,0 +1,11 @@
+// This Pine Script™ code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © zeubetella
+
+//@version=5
+indicator("İzsüren Stop Mekanizmaları")
+
+f_yuksekdusuk_yuksek = ta.highest(5)
+f_yuksekdusuk_dusuk = ta.lowest(5)
+
+plot(f_yuksekdusuk_yuksek, color = color.green)
+plot(f_yuksekdusuk_dusuk, color = color.red)
