@@ -4,8 +4,8 @@
 //@version=5
 indicator("İzsüren Stop Mekanizmaları", overlay = true)
 
-f_yuksekdusuk_input_show = input.bool(true)
-f_atr_input_show = input.bool(false)
+f_yuksekdusuk_input_show = input.bool(false)
+f_atr_input_show = input.bool(true)
 
 //
 
@@ -19,3 +19,8 @@ plot(f_yuksekdusuk_input_show ? f_yuksekdusuk_dusuk : na, color = color.red)
 
 //
 
+f_atr_len = input.int(14)
+
+f_atr_islenmis = ta.atr(f_atr_len)
+
+plot(f_atr_islenmis)
