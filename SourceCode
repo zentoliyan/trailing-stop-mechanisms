@@ -30,7 +30,7 @@ plot(f_atr_input_show ? f_atr_islenmis : na)
 table f_trailing_stop_yuzdeli_table = table.new(position.middle_right, columns = 3, rows = 13)
 
 f_trailing_stop_yuzdeli_giris_f = input.int(50, title = "Giriş Fiyatı")
-f_trailing_stop_yuzdeli_stop_tasima_y = input.float(0.1, title = "Zarar Stopunuz Yüzde Kaç ile Hareket Etsin?")
+f_trailing_stop_yuzdeli_stop_tasima_y = input.float(0.1, title = "Zarar Stopunuz Yüzde Kaç ile Hareket Etsin?", step = 0.05)
 
 f_trailing_stop_yuzdeli_stp_1 = f_trailing_stop_yuzdeli_giris_f + (f_trailing_stop_yuzdeli_giris_f * f_trailing_stop_yuzdeli_stop_tasima_y )
 
