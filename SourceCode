@@ -23,4 +23,4 @@ f_atr_len = input.int(14)
 
 f_atr_islenmis = close - (ta.atr(f_atr_len) / 2)
 
-plot(f_atr_islenmis)
+plot(f_atr_input_show ? f_atr_islenmis : na)
