@@ -21,6 +21,6 @@ plot(f_yuksekdusuk_input_show ? f_yuksekdusuk_dusuk : na, color = color.red)
 
 f_atr_len = input.int(14)
 
-f_atr_islenmis = ta.atr(f_atr_len)
+f_atr_islenmis = close - (ta.atr(f_atr_len) / 2)
 
 plot(f_atr_islenmis)
