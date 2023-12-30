@@ -8,8 +8,8 @@ indicator("İzsüren Stop Mekanizmaları", overlay = true)
 
 f_yuksekdusuk_input_show = input.bool(false)
 f_atr_input_show = input.bool(false)
-f_trailing_stop_yuzdeli_kumulatif_table_show = input.bool(false)
-f_trailing_stop_yuzdeli_non_kumulatif_table_show = input.bool(true)
+f_trailing_stop_yuzdeli_kumulatif_table_show = input.bool(true)
+f_trailing_stop_yuzdeli_non_kumulatif_table_show = input.bool(false)
 f_trail_cond_low_cond_show = input.bool(true)
 
 // groups
