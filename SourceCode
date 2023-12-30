@@ -139,6 +139,6 @@ f_trail_cond_low_cond = low > low[1]
 
 f_trail_cond_low_cond_occ = ta.valuewhen(f_trail_cond_low_cond, low, f_trail_cond_low_cond_input)
 
-plot(f_trail_cond_low_show ? f_trail_cond_low_cond_occ : na,
+plot(f_trail_cond_low_cond_show ? f_trail_cond_low_cond_occ : na,
      title = "Trail Stop Line", 
      color = close > f_trail_cond_low_cond_occ ? color.rgb(0, 255, 8) : color.rgb(255, 0, 0))
