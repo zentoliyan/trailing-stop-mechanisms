@@ -5,8 +5,8 @@
 indicator("İzsüren Stop Mekanizmaları", overlay = true)
 
 f_yuksekdusuk_input_show = input.bool(false)
-f_atr_input_show = input.bool(true)
-
+f_atr_input_show = input.bool(false)
+f_trailing_stop_yuzdeli_kumulatif_table_show = input.bool(true)
 //
 
 f_yuksekdusuk_input_len = input.int(5)
@@ -27,7 +27,7 @@ plot(f_atr_input_show ? f_atr_islenmis : na)
 
 //
 
-table f_trailing_stop_yuzdeli_table = table.new(position.middle_right, columns = 3, rows = 13)
+table f_trailing_stop_yuzdeli_kumulatif_table = table.new(position.middle_right, columns = 3, rows = 13)
 
 f_trailing_stop_yuzdeli_giris_f = input.int(50, title = "Giriş Fiyatı")
 f_trailing_stop_yuzdeli_stop_tasima_y = input.float(0.1, title = "Zarar Stopunuz Yüzde Kaç ile Hareket Etsin?", step = 0.05)
@@ -43,28 +43,29 @@ f_trailing_stop_yuzdeli_stp_8  = f_trailing_stop_yuzdeli_stp_7   + (f_trailing_s
 f_trailing_stop_yuzdeli_stp_9  = f_trailing_stop_yuzdeli_stp_8   + (f_trailing_stop_yuzdeli_stp_8   * f_trailing_stop_yuzdeli_stop_tasima_y)
 f_trailing_stop_yuzdeli_stp_10 = f_trailing_stop_yuzdeli_stp_9   + (f_trailing_stop_yuzdeli_stp_9   * f_trailing_stop_yuzdeli_stop_tasima_y)
 
+if f_trailing_stop_yuzdeli_kumulatif_table_show
 
-table.cell(f_trailing_stop_yuzdeli_table, 0, 0,  "Stop Noktası",    text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 1, 0,  "Stop Noktası",    text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 0, 0,  "Stop Noktası",    text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 1, 0,  "Stop Noktası",    text_color = color.black)
 
-table.cell(f_trailing_stop_yuzdeli_table, 0, 1,  "Stop Noktası 1",  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 0, 2,  "Stop Noktası 2",  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 0, 3,  "Stop Noktası 3",  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 0, 4,  "Stop Noktası 4",  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 0, 5,  "Stop Noktası 5",  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 0, 7,  "Stop Noktası 6",  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 0, 8,  "Stop Noktası 7",  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 0, 9,  "Stop Noktası 8",  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 0, 10, "Stop Noktası 9",  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 0, 11, "Stop Noktası 10", text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 0, 1,  "Stop Noktası 1",  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 0, 2,  "Stop Noktası 2",  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 0, 3,  "Stop Noktası 3",  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 0, 4,  "Stop Noktası 4",  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 0, 5,  "Stop Noktası 5",  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 0, 7,  "Stop Noktası 6",  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 0, 8,  "Stop Noktası 7",  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 0, 9,  "Stop Noktası 8",  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 0, 10, "Stop Noktası 9",  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 0, 11, "Stop Noktası 10", text_color = color.black)
 
-table.cell(f_trailing_stop_yuzdeli_table, 1, 1,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_1,2)),  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 1, 2,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_2,2)),  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 1, 3,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_3,2)),  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 1, 4,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_4,2)),  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 1, 5,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_5,2)),  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 1, 7,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_6,2)),  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 1, 8,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_7,2)),  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 1, 9,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_8,2)),  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 1, 10, str.tostring(math.round(f_trailing_stop_yuzdeli_stp_9,2)),  text_color = color.black)
-table.cell(f_trailing_stop_yuzdeli_table, 1, 11, str.tostring(math.round(f_trailing_stop_yuzdeli_stp_10,2)), text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 1, 1,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_1,2)),  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 1, 2,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_2,2)),  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 1, 3,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_3,2)),  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 1, 4,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_4,2)),  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 1, 5,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_5,2)),  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 1, 7,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_6,2)),  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 1, 8,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_7,2)),  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 1, 9,  str.tostring(math.round(f_trailing_stop_yuzdeli_stp_8,2)),  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 1, 10, str.tostring(math.round(f_trailing_stop_yuzdeli_stp_9,2)),  text_color = color.black)
+    table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 1, 11, str.tostring(math.round(f_trailing_stop_yuzdeli_stp_10,2)), text_color = color.black)
