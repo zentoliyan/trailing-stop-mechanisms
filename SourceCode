@@ -10,6 +10,7 @@ f_yuksekdusuk_input_show = input.bool(false)
 f_atr_input_show = input.bool(false)
 f_trailing_stop_yuzdeli_kumulatif_table_show = input.bool(false)
 f_trailing_stop_yuzdeli_non_kumulatif_table_show = input.bool(true)
+f_trail_cond_low_cond_show = input.bool(true)
 
 // groups
 
@@ -125,3 +126,20 @@ if f_trailing_stop_yuzdeli_non_kumulatif_table_show
     table.cell(f_trailing_stop_yuzdeli_non_kumulatif_table, 1, 9,  str.tostring(math.round(f_trailing_stop_yuzdeli_non_kumulatif_stp_8,2)),  text_color = color.black)
     table.cell(f_trailing_stop_yuzdeli_non_kumulatif_table, 1, 10, str.tostring(math.round(f_trailing_stop_yuzdeli_non_kumulatif_stp_9,2)),  text_color = color.black)
     table.cell(f_trailing_stop_yuzdeli_non_kumulatif_table, 1, 11, str.tostring(math.round(f_trailing_stop_yuzdeli_non_kumulatif_stp_10,2)), text_color = color.black)
+
+//
+
+f_trail_cond_low_cond_input   = input.int(2, 
+                     title   = "Number of occurrences of the condition", 
+                     minval  = 1, 
+                     step    = 1, 
+                     tooltip = "How many times should the condition 'Low Value < Previous Low Value' be met for the line color to turn red?")
+
+f_trail_cond_low_cond = low > low[1]
+
+f_trail_cond_low_cond_occ = ta.valuewhen(f_trail_cond_low_cond, low, f_trail_cond_low_cond_input)
+
+plot(f_trail_cond_low_cond_occ, 
+     title = 
+     "Trail Stop Line", 
+     color = close > trail_stop ? color.rgb(0, 255, 8) : color.rgb(255, 0, 0))
