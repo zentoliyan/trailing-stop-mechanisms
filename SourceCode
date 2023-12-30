@@ -85,7 +85,7 @@ if f_trailing_stop_yuzdeli_kumulatif_table_show
 
 table f_trailing_stop_yuzdeli_non_kumulatif_table = table.new(position.middle_right, columns = 3, rows = 13)
 
-f_trailing_stop_yuzdeli_non_kumulatif_giris_f       = input.int(50, title = "Giriş Fiyatı")
+f_trailing_stop_yuzdeli_non_kumulatif_giris_f       = input.float(50, title = "Giriş Fiyatı")
 f_trailing_stop_yuzdeli_non_kumulatif_stop_tasima_y = input.float(0.1, title = "Zarar Stopunuz Yüzde Kaç ile Hareket Etsin?", step = 0.05)
 
 f_trailing_stop_yuzdeli_non_kumulatif_stp_1  = f_trailing_stop_yuzdeli_non_kumulatif_giris_f + (f_trailing_stop_yuzdeli_non_kumulatif_giris_f * f_trailing_stop_yuzdeli_non_kumulatif_stop_tasima_y)
