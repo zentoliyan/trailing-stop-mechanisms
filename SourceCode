@@ -11,6 +11,12 @@ f_atr_input_show = input.bool(false)
 f_trailing_stop_yuzdeli_kumulatif_table_show = input.bool(false)
 f_trailing_stop_yuzdeli_non_kumulatif_table_show = input.bool(true)
 
+// groups
+
+group_yuksekdusuk                 = "Yüksek-Düşük Kanalları"
+group_atr                         = "Ortalama Gerçek İşlem Aralığı Yöntemi"
+group_izsuren_fiyat_kumulatif     = "İzsüren Fiyat - Kümülatif"
+group_izsuren_fiyat_non_kunulatif = "İzsüren Fiyat - NonKümülatif"
 
 // f_yuksekdusuk
 
