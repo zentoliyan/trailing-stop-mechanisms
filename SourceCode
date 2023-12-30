@@ -4,11 +4,15 @@
 //@version=5
 indicator("İzsüren Stop Mekanizmaları", overlay = true)
 
+// bool inputs
+
 f_yuksekdusuk_input_show = input.bool(false)
 f_atr_input_show = input.bool(false)
 f_trailing_stop_yuzdeli_kumulatif_table_show = input.bool(false)
 f_trailing_stop_yuzdeli_non_kumulatif_table_show = input.bool(true)
-//
+
+
+// f_yuksekdusuk
 
 f_yuksekdusuk_input_len = input.int(5)
 
@@ -18,7 +22,7 @@ f_yuksekdusuk_dusuk = ta.lowest(f_yuksekdusuk_input_len)
 plot(f_yuksekdusuk_input_show ? f_yuksekdusuk_yuksek : na, color = color.green)
 plot(f_yuksekdusuk_input_show ? f_yuksekdusuk_dusuk : na, color = color.red)
 
-//
+// f_atr
 
 f_atr_len = input.int(14)
 
@@ -26,7 +30,7 @@ f_atr_islenmis = close - (ta.atr(f_atr_len) / 2)
 
 plot(f_atr_input_show ? f_atr_islenmis : na)
 
-//
+// f_trailing_stop_yuzdeli_kumulatif_table
 
 table f_trailing_stop_yuzdeli_kumulatif_table = table.new(position.middle_right, columns = 3, rows = 13)
 
@@ -71,7 +75,7 @@ if f_trailing_stop_yuzdeli_kumulatif_table_show
     table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 1, 10, str.tostring(math.round(f_trailing_stop_yuzdeli_stp_9,2)),  text_color = color.black)
     table.cell(f_trailing_stop_yuzdeli_kumulatif_table, 1, 11, str.tostring(math.round(f_trailing_stop_yuzdeli_stp_10,2)), text_color = color.black)
 
-//
+// f_trailing_stop_yuzdeli_non_kumulatif_table
 
 table f_trailing_stop_yuzdeli_non_kumulatif_table = table.new(position.middle_right, columns = 3, rows = 13)
 
