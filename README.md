@@ -1,1 +1,1 @@
-# -zs-ren-Stop-Mekanizmalar-
+# İzsüren Stop Mekanizmaları
